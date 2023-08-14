@@ -1,7 +1,3 @@
-# apache-guacamole-helper
-
-Here is a README for the Guacamole installation script:
-
 # Guacamole Installation Script
 
 This script automates the installation and configuration of Guacamole on Ubuntu.
@@ -12,7 +8,7 @@ This script automates the installation and configuration of Guacamole on Ubuntu.
 ./install-guacamole.sh <version>
 ```
 
-Replace `<version>` with the desired Guacamole version (e.g. 1.3.0).
+Replace `<version>` with the desired Guacamole version (e.g. 1.3.0). 
 
 The script will:
 
@@ -23,26 +19,44 @@ The script will:
 - Configure guacamole.properties and user-mapping.xml
 - Symlink configuration into Tomcat
 
-## Configuration
+## Additional Scripts
 
-The script configures Guacamole with:
+### Managing Users
 
-- guacd listening on localhost:4822
-- Basic file auth pointing to user-mapping.xml
-- A single admin user "guacadmin" with password "guacadmin"
-- A connection to VNC on localhost:5901
+The `guac-users.sh` script allows adding and removing user accounts by modifying `user-mapping.xml`.
 
-These can be customized by modifying `/etc/guacamole/guacamole.properties` and `/etc/guacamole/user-mapping.xml` after install.
+```
+./guac-users.sh add <username> <password>  # Add user
+./guac-users.sh delete <username>         # Delete user
+```
+
+### Managing Connections
+
+The `guac-servers.sh` script allows adding, deleting, and editing connections by modifying `user-mapping.xml`.
+
+```  
+./guac-servers.sh add <name> <parameters>    # Add connection
+./guac-servers.sh delete <name>              # Delete connection
+./guac-servers.sh edit <name> <parameters>   # Edit connection
+```
+
+See script comments for parameter syntax.
+
+## Configuration  
+
+The main install script will create a default `guacamole.properties` and `user-mapping.xml`. These can be further customized using the `guac-users.sh` and `guac-servers.sh` scripts.
 
 ## Troubleshooting
 
 If the installation fails, check:
 
 - Version exists at download URL
-- Dependencies installed properly
+- Dependencies installed properly  
 - Tomcat initialized correctly
-- guacamole.properties and user-mapping.xml correct
+- guacamole.properties and user-mapping.xml correct  
 
 ## License
 
 This script is licensed under the GNU General Public License v3.0. See `LICENSE` for more details.
+
+Let me know if you would like me to modify or add anything to this README!
