@@ -45,8 +45,8 @@ To add a connection:
 - `<param name="hostname">` - Remote host IP or hostname
 - `<param name="port">` - Port for remote connection
 
-For example:
-./guac-servers.sh add 'Windows 10' '<protocol>rdp</protocol><param name="hostname">192.168.0.10</param><param name="port">3389</param>'
+For example:  
+`./guac-servers.sh add 'Windows 10' '<protocol>rdp</protocol><param name="hostname">192.168.0.10</param><param name="port">3389</param>'`
 
 For further information see script comments for parameter syntax.
 
