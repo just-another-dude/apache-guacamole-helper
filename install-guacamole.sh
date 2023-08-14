@@ -67,3 +67,23 @@ sudo ln -s /etc/guacamole/guacamole.properties /usr/share/tomcat9/.guacamole/
 
 sudo chmod 600 /etc/guacamole/user-mapping.xml
 sudo chown tomcat:tomcat /etc/guacamole/user-mapping.xml
+
+# Create guacd service
+sudo tee /lib/systemd/system/guacd.service <<EOF
+[Unit]
+Description=Guacamole Guacd Daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/sbin/guacd
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl enable guacd
+sudo systemctl start guacd
+
+sudo systemctl enable tomcat9
+sudo systemctl start tomcat9
