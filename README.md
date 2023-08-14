@@ -1,6 +1,7 @@
 # Guacamole Installation Script
 
-This script automates the installation and configuration of Guacamole on Ubuntu.
+This script automates the installation and configuration of Guacamole on Ubuntu.  
+After the installation is complete, the guacamole server should be accessible on `http://SERVER_IP:8080/guacamole`
 
 ## Usage
 
