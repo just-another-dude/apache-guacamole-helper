@@ -1,11 +1,14 @@
 #!/bin/bash
 
-mapping_file="/etc/guacamole/user-mapping.xml" 
+# Usage:
+# ./guac-servers.sh add <name> '<protocol>rdp</protocol><param name="hostname">HOST</param><param name="port">PORT</param>'
+
+mapping_file="/etc/guacamole/user-mapping.xml"
 
 if [ $# -lt 2 ]; then
   echo "Usage: $0 (add|delete|edit) <connection_name> [parameters]"
   exit 1
-fi  
+fi
 
 action=$1
 name=$2
@@ -18,13 +21,14 @@ fi
 
 if [ "$action" = "add" ] && [ -z "$params" ]; then
   echo "Missing parameters for add connection"
-  exit 1  
+  exit 1
 fi
 
 if [ "$action" = "add" ]; then
 
   # Add connection
-  sed -i "/<user-mapping>/a \<connection name=\"$name\"\>${params}\</connection\>" $mapping_file
+  # Expects parameter syntax: <protocol>rdp</protocol><param name="hostname">HOST</param><param name="port">PORT</param>
+  sed -i "/<user-mapping>/a \<connection name=\"$name\"\>${params}\</connection>" $mapping_file
 
 elif [ "$action" = "delete" ]; then
 
@@ -34,7 +38,7 @@ elif [ "$action" = "delete" ]; then
 elif [ "$action" = "edit" ]; then
 
   # Edit connection
-  sed -i "/<connection name=\"$name\"/,/<\/connection>/c \<connection name=\"$name\"\>${params}\</connection\>" $mapping_file
+  sed -i "/<connection name=\"$name\"/,/<\/connection>/c\<connection name=\"$name\"\>${params}\</connection>" $mapping_file
 
 fi
 

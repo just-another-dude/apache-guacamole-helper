@@ -39,8 +39,16 @@ The `guac-servers.sh` script allows adding, deleting, and editing connections by
 ./guac-servers.sh delete <name>              # Delete connection
 ./guac-servers.sh edit <name> <parameters>   # Edit connection
 ```
+To add a connection:
+- `<name>` - Name of the connection
+- `<protocol>` - Protocol, either `rdp` or `vnc`
+- `<param name="hostname">` - Remote host IP or hostname
+- `<param name="port">` - Port for remote connection
 
-See script comments for parameter syntax.
+For example:
+./guac-servers.sh add 'Windows 10' '<protocol>rdp</protocol><param name="hostname">192.168.0.10</param><param name="port">3389</param>'
+
+For further information see script comments for parameter syntax.
 
 ## Configuration  
 
