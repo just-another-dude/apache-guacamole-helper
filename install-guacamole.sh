@@ -64,3 +64,6 @@ cat <<IFS > /etc/guacamole/user-mapping.xml
 IFS
 
 sudo ln -s /etc/guacamole/guacamole.properties /usr/share/tomcat9/.guacamole/
+
+sudo chmod 600 /etc/guacamole/user-mapping.xml
+sudo chown tomcat:tomcat /etc/guacamole/user-mapping.xml
