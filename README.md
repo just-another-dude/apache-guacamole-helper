@@ -47,13 +47,15 @@ To add a connection:
 - `<param name="port">` - Port for remote connection
 
 For example:  
-`./guac-servers.sh add 'Windows 10' '<protocol>rdp</protocol><param name="hostname">192.168.0.10</param><param name="port">3389</param>'`
+`./guac-servers.sh add 'Windows 10' '<protocol>rdp</protocol><param name="hostname">192.168.0.10</param><param name="username">Admin</param><param name="password">Password</param><param name="port">3389</param><param name="ignore-cert">true</param>'`
 
 For further information see script comments for parameter syntax.
 
 ## Configuration  
 
-The main install script will create a default `guacamole.properties` and `user-mapping.xml`. These can be further customized using the `guac-users.sh` and `guac-servers.sh` scripts.
+The main install script will create a default `guacamole.properties` and `user-mapping.xml`. These can be further customized using the `guac-users.sh` and `guac-servers.sh` scripts.  
+For windows server, make sure to have either working certificates or define the following parameter within the connection:
+<param name="ignore-cert">true</param>
 
 ## Troubleshooting
 
