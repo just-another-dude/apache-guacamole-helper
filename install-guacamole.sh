@@ -75,8 +75,12 @@ Description=Guacamole Guacd Daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/local/sbin/guacd
-Restart=always
+ExecStart=/usr/local/sbin/guacd -f
+Restart=on-failure
+User=root
+Group=root
+StartLimitInterval=10min
+StartLimitBurst=5
 
 [Install]
 WantedBy=multi-user.target
