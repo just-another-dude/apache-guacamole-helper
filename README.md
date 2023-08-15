@@ -54,8 +54,9 @@ For further information see script comments for parameter syntax.
 ## Configuration  
 
 The main install script will create a default `guacamole.properties` and `user-mapping.xml`. These can be further customized using the `guac-users.sh` and `guac-servers.sh` scripts.  
-For windows server, make sure to have either working certificates or define the following parameter within the connection:
-<param name="ignore-cert">true</param>
+  
+For windows server, make sure to have either working certificates or define the following parameter within the connection:  
+`<param name="ignore-cert">true</param>`
 
 ## Troubleshooting
 
