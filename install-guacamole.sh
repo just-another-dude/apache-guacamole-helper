@@ -2,6 +2,7 @@
 
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <guacamole_version>"
+  echo "Available versions can be found here: https://guacamole.apache.org/releases/"
   exit 1
 fi
 
