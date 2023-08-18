@@ -6,7 +6,7 @@ After the installation is complete, the guacamole server should be accessible on
 ## Usage
 
 ```bash
-./install-guacamole.sh <version>
+sudo ./install-guacamole.sh <version>
 ```
 
 Replace `<version>` with the desired Guacamole version (e.g. 1.3.0). 
