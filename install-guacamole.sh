@@ -8,7 +8,9 @@ fi
 
 version=$1
 
-if [ ! -f "https://dlcdn.apache.org/guacamole/${version}/source/guacamole-server-${version}.tar.gz" ]; then
+if $(wget --spider "https://dlcdn.apache.org/guacamole/${version}/source/guacamole-server-${version}.tar.gz" > /dev/null); then
+  echo "Found Guacamole version ${version}"
+else
   echo "Guacamole version ${version} not found"
   exit 1
 fi
